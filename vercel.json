@@ -1,9 +1,18 @@
 {
   "version": 2,
+  "env": {
+    "DATABASE_URL": "postgres://default:6uARh4lwMqHC@ep-quiet-feather-a43ccz0v.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+  },
+  "builds": [
+    {
+      "src": "src/LLMService/main.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/LLMService/templates/index.html"
+      "dest": "src/LLMService/main.py"
     }
   ]
 }
