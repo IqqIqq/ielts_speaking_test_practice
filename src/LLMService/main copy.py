@@ -5,7 +5,6 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-import os
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")  # 确保路径正确
@@ -76,7 +75,7 @@ async def call_llm(request: Request, query: str = Form(...)):
 #     return spark_answer  # 返回生成的答案
 
 # 数据库配置
-DATABASE_URL = os.getenv("DATABASE_URL")  # 从环境变量获取连接字符串
+DATABASE_URL = "postgresql://postgres:admin@localhost:5432/postgres"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
