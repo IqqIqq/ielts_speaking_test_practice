@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/LLMService/templates/index.html" // for static sites
+    }
+  ]
+}

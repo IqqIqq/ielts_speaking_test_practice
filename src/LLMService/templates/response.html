@@ -27,15 +27,26 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-center">Your Query Response</h1>
+        <h1 class="text-center">Your Response</h1>
         <div class="response">
             <h5>Question:</h5>
             <p>{{ question }}</p>
-            <h5>Answer:</h5>
-            <p>{{ answer }}</p>
+            <h5>Answers:</h5>
+            <p id="generated-answer">{{ answer }}</p>
+            <button class="btn btn-secondary" onclick="copyToClipboard()">Copy Answer</button>
         </div>
-        <a href="/qa" class="btn btn-primary btn-block mt-3">Ask Another Question</a>
+        <a href="/" class="btn btn-primary btn-block mt-3">Back to Questions</a>
     </div>
+    <script>
+        function copyToClipboard() {
+            const answerText = document.getElementById('generated-answer').innerText;
+            navigator.clipboard.writeText(answerText).then(() => {
+                alert('Answer copied to clipboard!');
+            }).catch(err => {
+                console.error('Error copying text: ', err);
+            });
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

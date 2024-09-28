@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Speaking Questions</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">IELTS Speaking</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="text-center">IELTS Speaking Questions</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" aria-selected="true">Part 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2" aria-selected="false">Part 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" aria-selected="false">Part 3</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="part1" role="tabpanel" aria-labelledby="part1-tab">
+                {% for question in part1_questions %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ question.question }}</h5>
+                        <form action="/submit_answer" method="post">
+                            <input type="hidden" name="question_id" value="{{ question.id }}">
+                            <input type="hidden" name="part" value="1">
+                            <div class="form-group">
+                                <label for="keywords">Enter Keywords:</label>
+                                <input type="text" class="form-control" id="keywords" name="keywords" placeholder="Enter keywords" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Answer</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="tab-pane fade" id="part2" role="tabpanel" aria-labelledby="part2-tab">
+                {% for question_list in part2_questions %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Questions:</h5>
+                        {% for question in question_list %}
+                        <p>{{ question.strip() }}?</p>
+                        <form action="/submit_answer" method="post">
+                            <input type="hidden" name="part" value="2">
+                            <input type="hidden" name="question_id" value="{{ loop.index }}">
+                            <div class="form-group">
+                                <label for="keywords">Enter Keywords:</label>
+                                <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Answer</button>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="tab-pane fade" id="part3" role="tabpanel" aria-labelledby="part3-tab">
+                {% for question_list in part3_questions %}
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Questions:</h5>
+                        {% for question in question_list %}
+                        <p>{{ question.strip() }}?</p>
+                        <form action="/submit_answer" method="post">
+                            <input type="hidden" name="part" value="3">
+                            <input type="hidden" name="question_id" value="{{ loop.index }}">
+                            <div class="form-group">
+                                <label for="keywords">Enter Keywords:</label>
+                                <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Answer</button>
+                        </form>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
