@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/LLMService/templates/index.html" // for static sites
+      "dest": "src/LLMService/templates/index.html"
     }
   ]
 }
