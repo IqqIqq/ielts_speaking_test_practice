@@ -76,7 +76,9 @@ async def call_llm(request: Request, query: str = Form(...)):
 #     return spark_answer  # 返回生成的答案
 
 # 数据库配置
-DATABASE_URL = os.getenv("DATABASE_URL")  # 从环境变量获取连接字符串
+#DATABASE_URL = os.getenv("DATABASE_URL")  # 从环境变量获取连接字符串
+DATABASE_URL = "postgres://default:6uARh4lwMqHC@ep-quiet-feather-a43ccz0v-pooler.us-east-1.aws.neon.tech/verceldb?sslmode=require"
+
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
