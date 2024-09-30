@@ -89,16 +89,19 @@ class Part1Question(Base):
     __tablename__ = "part_1"
     id = Column(Integer, primary_key=True, index=True)
     question = Column(String, index=True)
+    category = Column(String)  # 新增类别列
 
 class Part2Question(Base):
     __tablename__ = "part_2"
     id = Column(Integer, primary_key=True, index=True)
     question = Column(String, index=True)
+    category = Column(String)  # 新增类别列
 
 class Part3Question(Base):
     __tablename__ = "part_3"
     id = Column(Integer, primary_key=True, index=True)
     question = Column(String, index=True)
+    category = Column(String)  # 新增类别列
 
 # Define user model
 class User(Base):
@@ -141,11 +144,11 @@ async def submit_answer(request: Request, question_id: int = Form(...), keywords
         question = db.query(Part1Question).filter(Part1Question.id == question_id).first()
         answer = generate_answer(question.question, keywords)
     elif part == 2:
-        question = db.query(Part2Question).filter(Part2Question.id == question_id).first()
-        answer = generate_answer(question.question, keywords)
+        questions = db.query(Part2Question).all()  # 获取所有 Part 2 问题
+        answer = generate_answer(", ".join([q.question for q in questions]), keywords)
     else:
-        question = db.query(Part3Question).filter(Part3Question.id == question_id).first()
-        answer = generate_answer(question.question, keywords)
+        questions = db.query(Part3Question).all()  # 获取所有 Part 3 问题
+        answer = generate_answer(", ".join([q.question for q in questions]), keywords)
 
     return templates.TemplateResponse("response.html", {"request": request, "question": question.question, "answer": answer})
 

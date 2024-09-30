@@ -1,0 +1,288 @@
+id,category,question
+1,Study,Do you work or are you a student?
+2,Study,What subject are you studying?
+3,Study,Why did you choose that subject?
+4,Study,What would you like to do in the future?
+5,Study,What are the most popular subjects in China?
+6,Study,Do you think it is important to choose a subject you like?
+7,Study,Are you looking forward to working?
+8,Study,Do you like your subject? (Why? / Why not?)
+9,Study,Do you prefer to study in the mornings or in the afternoons?
+10,Study,Is your subject interesting to you?
+11,Study,Is there any kind of technology you can use in study?
+12,Study,What kind of learning method helps you?
+13,Study,How many hours a week do you study for?
+14,Study,Is there any difference between the study life of you and your parents?
+15,Study,Where is your school?
+16,Study,Do you like your school?
+17,Study,Is there anything you want to change about your school?
+18,Work,What work do you do?
+19,Work,Why did you choose to do that type of job?
+20,Work,Do you like your job?
+21,Work,Do you miss being a student?
+22,Work,Is it very interesting?
+23,Work,Is there any kind of technology you use at work?
+24,Work,Can you manage your time well when you work?
+25,Work,Who helps you most at work?
+26,Work,How many hours a week do you work for?
+27,Work,Do you currently have a good work environment?
+28,Work,What do you think could be improved at your workplace?
+29,Work,Have you ever thought about changing jobs?
+30,Work,What do you think would be challenging when you start working in the future?
+31,Work,Is there a place in your company that makes you feel relaxed?
+32,Work,What are the advantages of a company having a relaxation room?
+33,Hometown,Has your hometown changed much these years?
+34,Hometown,Is that a big city or a small place?
+35,Hometown,How long have you been living here?
+36,Hometown,"For you, what benefits are there living in a big city?"
+37,Hometown,Is there anything you dislike about it?
+38,Hometown,What do you like most about your hometown?
+39,The area you live in,Where in your country do you live?
+40,Accommodation,Are the transport facilities in your city very good?
+41,Accommodation,Which room does your family spend most of the time in?
+42,Accommodation,Do you live in a house or a flat?
+43,Accommodation,Do you plan to live here for a long time?
+44,Accommodation,Do you live alone or with your family?
+45,Accommodation,How long have you lived there?
+46,Accommodation,What do you usually do in your house/flat/room?
+47,Accommodation,Which is your favourite room in your home?
+48,Accommodation,What?¡¥s the difference between where you are living now and where you lived in the past? (If you want to say you have not lived elsewhere)
+49,Accommodation,What can you see when youu look out the window of your room?
+50,Accommodation,Would you be willing to live in the countryside in the future?
+51,The area you live in,Do you like the area that you live in now?
+52,The area you live in,Do you think the area you live in now is suitable for people of all ages?
+53,The area you live in,Are people in your area friendly?
+54,The area you live in,How has your area changed in recent years?
+55,The area you live in,Do you know any famous people in your area?
+56,The area you live in,Where do you like to go in your area?
+57,Riding bikes,Did you have a bike when you were young?
+58,Riding bikes,Did/Do you go to school by bike?
+59,Riding bikes,Will you choose to ride a bike if you go out these days?
+60,Riding bikes,Do you have a bike now?
+61,Riding bikes,Do you often ride a bike now?
+62,Riding bikes,Are bikes popular in China?
+63,Roads,Are the roads in the area where you live busy?
+64,Roads,How do people cross the road in the city where you live?
+65,Roads,How is the condition of the roads in your city?
+66,Roads,Do you think the see roads in your city need improvement?
+67,Laughter,Do you like to watch movies or TV shows that make people laugh?
+68,Laughter,Do you usually make your friends laugh?
+69,Laughter,Have you laughed recently? Why?
+70,Coins,Do you often take coins out with you?
+71,Coins,Have you ever collected coins?
+72,Coins,Is it convenient to use coins today?
+73,Coins,Do you use coins in your daily life?
+74,Perfume,Do you like to use perfume?
+75,Perfume,How often do you wear perfume?
+76,Perfume,What kind of perfume do you like to wear?
+77,Perfume,Have you ever given a perfume as a gift?
+78,Fishing,Do you like eating fish?
+79,Fishing,Is fishing popular in your country?
+80,Fishing,Have you ever been to a place where there are lots of fish around you?
+81,Fishing,Have you seen any movies featuring lots of fish?
+82,Fishing,Why do some people like fishing?
+83,Fishing,Where can you see fish?
+84,Scenery,What kinds of beautiful scenery are there around your hometown?
+85,Scenery,"When you travel, do you like to stay in hotels with scenic views?"
+86,Scenery,Do people like to take photos of beautiful scenery?
+87,Scenery,Why do people prefer to take photos of beautiful scenery with smartphones?
+88,Teamwork,Do you like teamwork?
+89,Teamwork,Have you worked with a team or someone else?
+90,Teamwork,"What do you think are the benefits of working together, in teams?"
+91,Teamwork,What do you hate when working together with others?
+92,Making friends,Do you like making friends?
+93,Making friends,Did you make a lot of products for a particular type of person in this area?
+94,Making friends,Have you made any new friends recently?
+95,Making friends,What do you often talk about with your friends?
+96,Making friends,Do you like meeting new people?
+97,Making friends,Where can you meet new people?
+98,Talking with others,Do you like to talk with others?
+99,Talking with others,Do you like to talk a lot with others?
+100,Talking with others,Did you like to talk with others when you were a kid?
+101,Talking with others,What topics do you usually enjoy discussing with others?
+102,Taking photos,Do you like to take photographs?
+103,Taking photos,Do you ever take photos of yourself?
+104,Taking photos,What is your favorite family photo?
+105,Taking photos,Do you want to improve your picture-taking skills?
+106,Free time,What do you like to do in your spare time?
+107,Free time,How much time do you have each week for doing these things?
+108,Free time,Why do you like doing these activities?
+109,Free time,How did you start doing this activity at first?
+110,Teachers,Did you want to be a teacher when you were younger?
+111,Teachers,Do you remember your teachers from primary school?
+112,Teachers,Do you have a favorite teacher?
+113,Teachers,What kind of teacher do you prefer?
+114,Plants,Have you ever planted trees?
+115,Plants,Where did you planted trees?
+116,Plants,Do you like plants?
+117,Plants,Do you keep plants at home?
+118,Plants,Do you know anything about growing a plant?
+119,Small businesses,Are there any famous small businesses in the area you live in?
+120,Small businesses,Do you prefer buying things from small or big companies?
+121,Small businesses,Have you ever worked in small businesses?
+122,Small businesses,Have you ever thought about starting your own business?
+123,E-books,Which do you preference-books or paper books?
+124,E-books,When do you usually read online?
+125,E-books,Will you read more online in the future?
+126,E-books,Do you think paper books will disappear in the future?
+127,Languages,What languages can you speak?
+128,Languages,What languages would you like to learn in the future?
+129,Languages,How do you learn a foreign language?
+130,Languages,How are languages taught and learned in your school?
+131,Internet,When did you start using the internet?
+132,Internet,How often do you go online?
+133,Internet,How does the internet influence people?
+134,Internet,Do you think you spend too much time online?
+135,Asking for help,Do you ask for help when you have a problem?
+136,Asking for help,Why are teachers always willing to help students?
+137,Asking for help,What kind of help do you often ask for?
+138,Asking for help,When was the last time you asked for help?
+139,Childhood memory,What did you enjoy doing as a child?
+140,Childhood memory,Did you enjoy your childhood?
+141,Childhood memory,Did you enjoy your childhood?
+142,Childhood memory,Do you think it is better for children to grow up in the city or in the countryside?
+143,Staying at home,Are you a person who likes to stay at home?
+144,Staying at home,What do you do when you stay at home?
+145,Staying at home,What is your favourite place at home?
+146,Staying at home,What did you often do at home as a child?
+147,Staying at home,Do you want to esatisfying to stay at home in the future?
+148,Exciting activities,Have you ever tried any exciting activities?
+149,Exciting activities,What exciting activities did you do when you were a child?
+150,Exciting activities,Has anything exciting happened to you recently?
+151,Exciting activities,Would you like to try scuba diving and bungee jumping?
+152,Numbers,Are you good at remembering phone numbers?
+153,Numbers,What?¡¥s your favorite number?
+154,Numbers,Do you usually use numbers?
+155,Pens or pencils,When was the last time that you bought a pen or pencil?
+156,Pens or pencils,Do you usually use a pen or pencil?
+157,Pens or pencils,Which one do you use more often? A Pen or a pencil?
+158,Pens or pencils,What would you think if someone gave you a pen or a pencil as a gift?
+159,Birthday,What do you usually do on your birthday?
+160,Birthday,What did you do on your birthday when you were young?
+161,Birthday,Do you think it is important for you to celebrate your birthday?
+162,Weather,Do you prefer hot or cold weather?
+163,Weather,What is the weather like in your hometown?
+164,Weather,Do you prefer dry or wet weather?
+165,Weather,Do you have the?¡ã1? of checking the weather forecast?
+166,Weather,What do you think are the effects of climate change in recent years?
+167,Weather,Would you like to visit other cities that have different climates from where you live?
+168,Shopping,Do you like shopping?
+169,Shopping,Do you compare prices when you shop? Why?
+170,Shopping,Is it difficult for you to make choices when you shop?
+171,Shopping,Do you think expensive products are always better than cheaper ones?
+172,Morning routines,What is your morning routine?
+173,Morning routines,Do you like to get up early in the mornings?
+174,Morning routines,What do you usually eat for breakfast?
+175,Morning routines,Do you think breakfast is important?
+176,Morning routines,Are there any differences between the mornings of your childhood and now?
+177,Morning routines,Would you like to change your morning routine?
+178,Mobile phones,Do you remember your first mobile phone?
+179,Mobile phones,Do you often use your mobile phone for texting or making phone calls?
+180,Mobile phones,How has your mobile phone changed your life?
+181,Mobile phones,Will you buy a new one in the future?
+182,Holidays,Where did you go in your last holiday?
+183,Holidays,Which public holiday do you like the best?
+184,Holidays,What do you usually do in your holidays?
+185,Holidays,Do you like holidays? Why?
+186,Holidays,Do you like to spend your day at home?
+187,Sports,What sports do you like?
+188,Sports,Where did you learn how to do it?
+189,Sports,What kind of sports did you do when you were young?
+190,Sports,Do you think students need more exercise?
+191,Sports,Do you know any people who are good at sports?
+192,Sports,Do you think it is important for people to exercise?
+193,Sports,Should schools encourage young students to take more physical exercise?
+194,Daily routines,What is your daily routine?
+195,Daily routines,Have you ever changed your routine?
+196,Daily routines,Which part of your daily routine do you like best?
+197,Science,Do you like science?
+198,Science,When did you start to learn about science?
+199,Science,What is your favourite subject of science?
+200,Science,What kinds of interesting things you have done with science?
+201,Science,Do you like watching science TV programs?
+202,Science,Do Chinese people often visit science museums?
+203,Libraries,Do you often go to the library?
+204,Libraries,What do you usually do in the library?
+205,Libraries,Did you go to library when you were a kid?
+206,Libraries,Do children in your country often go to library?
+207,Keys,Do you always bring a lot of keys with you?
+208,Keys,Have you ever lost your keys?
+209,Keys,Do you often forget the keys and lock yourself out?
+210,Keys,Do you think it's a good idea to leave your keys to a neighbor?
+211,Jewelry,How often do you wear jewelry?
+212,Jewelry,What type of jewelry do you like?
+213,Jewelry,Have you ever given jewelry to someone as a gift?
+214,Jewelry,Why do you think some people wear a piee of jewelry for a long time?
+215,Life stages,What did you often do with your friends in your childhood?
+216,Life stages,What do you think is the most important at the moment?
+217,Life stages,Do you have any plans for the next five years?
+218,Life stages,How do people remember each stage of their lives?
+219,Relaxing,What would you do to relax?
+220,Relaxing,Do you think doing sports is a great way to relax?
+221,Relaxing,Do you think vacation is a good time to relax?
+222,Relaxing,Do you think students need more relaxing time?
+223,Weekends,What do you usually do on weekends?
+224,Weekends,Would you say weekends are important to us?
+225,Weekends,What did you do last weekend?
+226,Weekends,Do you make plans for weekends?
+227,Art,Do you like art?
+228,Art,Have you ever visited an art gallery?
+229,Art,Do you want to be an artist?
+230,Art,Do you like modern art or traditional art?
+231,Outer space and stars,Have you ever learnt about outer space and stars?
+232,Outer space and stars,Are you interested in films about outer space and stars?
+233,Outer space and stars,Do you want to go to outer space in the future?
+234,Outer space and stars,Do you want to know more about outer space?
+235,T-shirts,Do you usually wear T-shirts?
+236,T-shirts,Do you like T-shirts with pictures or prints?
+237,T-shirts,Do you think older people are fashionable if they wear T-shirts?
+238,T-shirts,Have you ever bought T-shirts as souvenirs?
+239,T-shirts,Do you like wearing T-shirts?
+240,Staying up late,Do you often stay up late? What do you do when you stay up late?
+241,Staying up late,How do you feel when you have stayed up late the night before?
+242,Staying up late,Did you stay up late when you were a kid?
+243,Happiness,What made you happy when you were little?
+244,Happiness,Is there anything that makes you feel happy lately?
+245,Happiness,What do you think will make you feel happy in the future?
+246,Happiness,Are you happy when you buy new things?
+247,Happiness,When do you feel happy at work? Why?
+248,Happiness,Do you think happiness is important?
+249,Happiness,Do you think people are happy when buying new things?
+250,Chocolate,Do you like eating chocolate?
+251,Chocolate,Did you often eat chocolate when you were a child?
+252,Chocolate,What?¡¥s your favorite flavour?
+253,Chocolate,Do you think it is good to give others chocolate as gifts?
+254,Chocolate,Why do you think chocolate is popular around the world?
+255,Chocolate,How often do you eat chocolate?
+256,Sharing,Did your parents teach you to share when you were a child?
+257,Sharing,What kind of things do you like to share with others?
+258,Sharing,What kind of things are not suitable for sharing?
+259,Sharing,Do you have anything to share with others recently?
+260,Classmates,Do you like your desk mates in primary school?
+261,Classmates,Can students choose their desk mates in your country?
+262,Classmates,Is it good for children to play with their classmates?
+263,Challenges,What subject do you think is the most challenging at school?
+264,Challenges,Do you like to challenge yourself?
+265,Challenges,Do you like to live a life that has a lot Specification ?¨¤1?¦Ì??¨¤???¨º¨¬a¡ê?¡ä¨®?¡ìD¡ê¨¤?¡Á???¨¬???D?¦Ì?????¦Ì???¨¨???¨¬???¦Ì?¨¬??¨¨¦Ì¨¨ 
+266,Challenges,How do you usually deal with challenges in daily life?
+267,Music,What kinds of music do you like to listen to?
+268,Music,Do you enjoy the same kind of music with your friend?
+269,Music,Which singer or musician would you like to see in the concert that is going to be focused on in your city?
+270,Music,Is there any kind of music that you don?¡¥t enjoy very much?
+271,Maths,Do you think it is difficult to learn mathematics well?
+272,Maths,Do you often use a calculator?
+273,Maths,Do you think mathematics is important?
+274,Maths,Do you think females (girls) are good at math?
+275,Flowers,What kinds of flowers do you know?
+276,Flowers,Are there any flowers that have special meanings in China?
+277,Flowers,Have you planted any flowers?
+278,Flowers,Have you sent flowers to others?
+279,Pets and animals,What?¡¥s your favourite animal?
+280,Pets and animals,"Where do you prefer to keep your pet, indoors or outdoors?"
+281,Pets and animals,Did you have any pets when you were a child?
+282,Pets and animals,What is the most popular animal in China?
+283,News,Are you interested in news?
+284,News,How do you usually find news?
+285,News,How do your friends get news?
+286,News,Have you read the news this morning?
+287,News,Do you often talk with your friends about the news?

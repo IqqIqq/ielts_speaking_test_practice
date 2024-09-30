@@ -50,7 +50,7 @@
                 {% for question in part1_questions %}
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h5 class="card-title">{{ question.question }}</h5>
+                        <h5 class="card-title">{{ question.category }} - {{ question.question }}</h5>
                         <form action="/submit_answer" method="post">
                             <input type="hidden" name="question_id" value="{{ question.id }}">
                             <input type="hidden" name="part" value="1">
@@ -65,46 +65,32 @@
                 {% endfor %}
             </div>
             <div class="tab-pane fade" id="part2" role="tabpanel" aria-labelledby="part2-tab">
-                {% for question_list in part2_questions %}
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Questions:</h5>
-                        {% for question in question_list %}
-                        <p>{{ question.strip() }}?</p>
-                        <form action="/submit_answer" method="post">
-                            <input type="hidden" name="part" value="2">
-                            <input type="hidden" name="question_id" value="{{ loop.index }}">
-                            <div class="form-group">
-                                <label for="keywords">Enter Keywords:</label>
-                                <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit Answer</button>
-                        </form>
-                        {% endfor %}
+                <h5>Part 2 Questions</h5>
+                <form action="/submit_answer" method="post">
+                    <input type="hidden" name="part" value="2">
+                    <div class="form-group">
+                        <label for="keywords">Enter Keywords for Part 2:</label>
+                        <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
                     </div>
-                </div>
-                {% endfor %}
+                    {% for question in part2_questions %}
+                    <p>{{ question.question }}</p>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Submit Answers</button>
+                </form>
             </div>
             <div class="tab-pane fade" id="part3" role="tabpanel" aria-labelledby="part3-tab">
-                {% for question_list in part3_questions %}
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Questions:</h5>
-                        {% for question in question_list %}
-                        <p>{{ question.strip() }}?</p>
-                        <form action="/submit_answer" method="post">
-                            <input type="hidden" name="part" value="3">
-                            <input type="hidden" name="question_id" value="{{ loop.index }}">
-                            <div class="form-group">
-                                <label for="keywords">Enter Keywords:</label>
-                                <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit Answer</button>
-                        </form>
-                        {% endfor %}
+                <h5>Part 3 Questions</h5>
+                <form action="/submit_answer" method="post">
+                    <input type="hidden" name="part" value="3">
+                    <div class="form-group">
+                        <label for="keywords">Enter Keywords for Part 3:</label>
+                        <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
                     </div>
-                </div>
-                {% endfor %}
+                    {% for question in part3_questions %}
+                    <p>{{ question.question }}</p>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Submit Answers</button>
+                </form>
             </div>
         </div>
     </div>
