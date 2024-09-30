@@ -74,18 +74,13 @@
                             </form>
                         </div>
                         {% endfor %}
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?category={{ current_category }}&part={{ current_part - 1 }}">Previous Page</a>
+                            <a class="btn btn-secondary {% if part1_questions|length <= part1_questions_to_display|length %}disabled{% endif %}" href="/?category={{ current_category }}&part={{ current_part + 1 }}">Next Page</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Pagination -->
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        {% for i in range(1, (part1_count // 7) + 2) %}
-                        <li class="page-item {% if i == current_part %}active{% endif %}">
-                            <a class="page-link" href="/?category={{ current_category }}&part={{ i }}"> {{ i }} </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
             </div>
             <div class="tab-pane fade" id="part2" role="tabpanel" aria-labelledby="part2-tab">
                 <h5>Part 2 Questions</h5>
@@ -94,7 +89,7 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part2_grouped.items() %}
-                            <a class="list-group-item list-group-item-action" href="#">{{ category }}</a>
+                            <a class="list-group-item list-group-item-action" href="/?category={{ category }}&part=2">{{ category }}</a>
                             {% endfor %}
                         </div>
                     </div>
@@ -119,18 +114,13 @@
                             {% endfor %}
                         </div>
                         {% endfor %}
+                        <!-- Pagination for Part 2 -->
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?part=2&page={{ current_part - 1 }}">Previous Page</a>
+                            <a class="btn btn-secondary {% if part2_questions|length <= part2_questions_to_display|length %}disabled{% endif %}" href="/?part=2&page={{ current_part + 1 }}">Next Page</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Pagination for Part 2 -->
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        {% for i in range(1, (part2_count // 7) + 2) %}
-                        <li class="page-item {% if i == current_part %}active{% endif %}">
-                            <a class="page-link" href="/?part=2&page={{ i }}"> {{ i }} </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
             </div>
             <div class="tab-pane fade" id="part3" role="tabpanel" aria-labelledby="part3-tab">
                 <h5>Part 3 Questions</h5>
@@ -139,7 +129,7 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part3_grouped.items() %}
-                            <a class="list-group-item list-group-item-action" href="#">{{ category }}</a>
+                            <a class="list-group-item list-group-item-action" href="/?category={{ category }}&part=3">{{ category }}</a>
                             {% endfor %}
                         </div>
                     </div>
@@ -164,18 +154,13 @@
                             {% endfor %}
                         </div>
                         {% endfor %}
+                        <!-- Pagination for Part 3 -->
+                        <div class="d-flex justify-content-between">
+                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?part=3&page={{ current_part - 1 }}">Previous Page</a>
+                            <a class="btn btn-secondary {% if part3_questions|length <= part3_questions_to_display|length %}disabled{% endif %}" href="/?part=3&page={{ current_part + 1 }}">Next Page</a>
+                        </div>
                     </div>
                 </div>
-                <!-- Pagination for Part 3 -->
-                <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        {% for i in range(1, (part3_count // 7) + 2) %}
-                        <li class="page-item {% if i == current_part %}active{% endif %}">
-                            <a class="page-link" href="/?part=3&page={{ i }}"> {{ i }} </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
