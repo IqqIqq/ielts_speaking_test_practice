@@ -1,6 +1,6 @@
 #import SparkApi
 from src.LLMService import SparkApi
-from fastapi import FastAPI, Request, Form, Depends
+from fastapi import FastAPI, Request, Form, Depends, Query
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine, Column, Integer, String
@@ -122,20 +122,27 @@ def get_db():
         db.close()
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request, db: Session = Depends(get_db)):
+async def index(request: Request, db: Session = Depends(get_db), part: int = Query(1), category: str = Query(None)):
+    # 每页显示的问题数量
+    page_size = 10
     part1_questions = db.query(Part1Question).all()
     part2_questions = db.query(Part2Question).all()
     part3_questions = db.query(Part3Question).all()
 
-    # Split Part 2 and Part 3 questions by question mark and filter out empty strings
-    part2_questions_list = [list(filter(None, q.question.split('?'))) for q in part2_questions]
-    part3_questions_list = [list(filter(None, q.question.split('?'))) for q in part3_questions]
+    # 分页处理
+    part1_paginated = part1_questions[(part - 1) * page_size: part * page_size]
+    part2_paginated = part2_questions[(part - 1) * page_size: part * page_size]
+    part3_paginated = part3_questions[(part - 1) * page_size: part * page_size]
 
     return templates.TemplateResponse("index.html", {
         "request": request,
-        "part1_questions": part1_questions,
-        "part2_questions": part2_questions_list,
-        "part3_questions": part3_questions_list
+        "part1_questions": part1_paginated,
+        "part2_questions": part2_paginated,
+        "part3_questions": part3_paginated,
+        "part1_count": len(part1_questions),
+        "part2_count": len(part2_questions),
+        "part3_count": len(part3_questions),
+        "current_part": part
     })
 
 @app.post("/submit_answer", response_class=HTMLResponse)
