@@ -79,7 +79,7 @@ async def call_llm(request: Request, query: str = Form(...)):
 # Database configuration
 #DATABASE_URL = os.getenv("DATABASE_URL")  # Get the connection string from environment variables
 #DATABASE_URL = "postgres://default:6uARh4lwMqHC@ep-quiet-feather-a43ccz0v-pooler.us-east-1.aws.neon.tech/verceldb?sslmode=require"
-DATABASE_URL = "postgresql://postgres.plseahzuhkjjozmkpbqs:FTaY7wDwskquSkEA@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require&supa=base-pooler.x"
+DATABASE_URL = "https://plseahzuhkjjozmkpbqs.supabase.co"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
