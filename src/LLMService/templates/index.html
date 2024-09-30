@@ -89,35 +89,30 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part2_grouped.items() %}
-                            <a class="list-group-item list-group-item-action" href="/?category={{ category }}&part=2">{{ category }}</a>
+                            <a class="list-group-item list-group-item-action {% if category == current_category %}active{% endif %}" href="/?category={{ category }}&part=2">{{ category }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
-                        {% for category, questions in part2_grouped.items() %}
-                        <div>
-                            <h6>{{ category }}</h6>
-                            {% for question in questions %}
-                            <div class="card card-body">
-                                <h5 class="card-title">{{ question.question }}</h5>
-                                <form action="/submit_answer" method="post">
-                                    <input type="hidden" name="question_id" value="{{ question.id }}">
-                                    <input type="hidden" name="part" value="2">
-                                    <div class="form-group">
-                                        <label for="keywordsPart2{{ question.id }}">Enter Keywords:</label>
-                                        <input type="text" class="form-control" id="keywordsPart2{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                </form>
-                            </div>
-                            {% endfor %}
+                        {% for question in part2_questions %}
+                        <div class="card card-body">
+                            <h5 class="card-title">{{ question.question }}</h5>
+                            <form action="/submit_answer" method="post">
+                                <input type="hidden" name="question_id" value="{{ question.id }}">
+                                <input type="hidden" name="part" value="2">
+                                <div class="form-group">
+                                    <label for="keywordsPart2{{ question.id }}">Enter Keywords:</label>
+                                    <input type="text" class="form-control" id="keywordsPart2{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Answer</button>
+                            </form>
                         </div>
                         {% endfor %}
                         <!-- Pagination for Part 2 -->
                         <div class="d-flex justify-content-between">
-                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?part=2&page={{ current_part - 1 }}">Previous Page</a>
-                            <a class="btn btn-secondary {% if part2_questions|length <= part2_questions_to_display|length %}disabled{% endif %}" href="/?part=2&page={{ current_part + 1 }}">Next Page</a>
+                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?category={{ current_category }}&part=2&page={{ current_part - 1 }}">Previous Page</a>
+                            <a class="btn btn-secondary {% if part2_questions|length <= part2_questions_to_display|length %}disabled{% endif %}" href="/?category={{ current_category }}&part=2&page={{ current_part + 1 }}">Next Page</a>
                         </div>
                     </div>
                 </div>
@@ -129,35 +124,30 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part3_grouped.items() %}
-                            <a class="list-group-item list-group-item-action" href="/?category={{ category }}&part=3">{{ category }}</a>
+                            <a class="list-group-item list-group-item-action {% if category == current_category %}active{% endif %}" href="/?category={{ category }}&part=3">{{ category }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
-                        {% for category, questions in part3_grouped.items() %}
-                        <div>
-                            <h6>{{ category }}</h6>
-                            {% for question in questions %}
-                            <div class="card card-body">
-                                <h5 class="card-title">{{ question.question }}</h5>
-                                <form action="/submit_answer" method="post">
-                                    <input type="hidden" name="question_id" value="{{ question.id }}">
-                                    <input type="hidden" name="part" value="3">
-                                    <div class="form-group">
-                                        <label for="keywordsPart3{{ question.id }}">Enter Keywords:</label>
-                                        <input type="text" class="form-control" id="keywordsPart3{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                </form>
-                            </div>
-                            {% endfor %}
+                        {% for question in part3_questions %}
+                        <div class="card card-body">
+                            <h5 class="card-title">{{ question.question }}</h5>
+                            <form action="/submit_answer" method="post">
+                                <input type="hidden" name="question_id" value="{{ question.id }}">
+                                <input type="hidden" name="part" value="3">
+                                <div class="form-group">
+                                    <label for="keywordsPart3{{ question.id }}">Enter Keywords:</label>
+                                    <input type="text" class="form-control" id="keywordsPart3{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Answer</button>
+                            </form>
                         </div>
                         {% endfor %}
                         <!-- Pagination for Part 3 -->
                         <div class="d-flex justify-content-between">
-                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?part=3&page={{ current_part - 1 }}">Previous Page</a>
-                            <a class="btn btn-secondary {% if part3_questions|length <= part3_questions_to_display|length %}disabled{% endif %}" href="/?part=3&page={{ current_part + 1 }}">Next Page</a>
+                            <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?category={{ current_category }}&part=3&page={{ current_part - 1 }}">Previous Page</a>
+                            <a class="btn btn-secondary {% if part3_questions|length <= part3_questions_to_display|length %}disabled{% endif %}" href="/?category={{ current_category }}&part=3&page={{ current_part + 1 }}">Next Page</a>
                         </div>
                     </div>
                 </div>

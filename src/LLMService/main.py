@@ -124,7 +124,7 @@ def get_db():
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request, db: Session = Depends(get_db), part: int = Query(1), category: str = Query(None)):
     # 每页显示的问题数量
-    page_size = 7
+    page_size = 5
     part1_questions = db.query(Part1Question).all()
     part2_questions = db.query(Part2Question).all()
     part3_questions = db.query(Part3Question).all()
@@ -156,12 +156,18 @@ async def index(request: Request, db: Session = Depends(get_db), part: int = Que
     part1_questions_to_display = part1_grouped.get(category, [])
     part1_paginated = part1_questions_to_display[(part - 1) * page_size: part * page_size]
 
+    # 处理 Part 2 和 Part 3 的类别
+    part2_questions_to_display = part2_grouped.get(category, [])
+    part3_questions_to_display = part3_grouped.get(category, [])
+
     return templates.TemplateResponse("index.html", {
         "request": request,
         "part1_grouped": part1_grouped,
         "part1_questions": part1_paginated,
         "part2_grouped": part2_grouped,
+        "part2_questions": part2_questions_to_display,
         "part3_grouped": part3_grouped,
+        "part3_questions": part3_questions_to_display,
         "part1_count": len(part1_questions),
         "part2_count": len(part2_questions),
         "part3_count": len(part3_questions),
