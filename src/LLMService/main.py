@@ -1,4 +1,5 @@
-import SparkApi
+#import SparkApi
+from src.LLMService import SparkApi
 from fastapi import FastAPI, Request, Form, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
