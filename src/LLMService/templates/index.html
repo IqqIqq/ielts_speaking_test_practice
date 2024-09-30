@@ -47,33 +47,38 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="part1" role="tabpanel" aria-labelledby="part1-tab">
-                <h5>Categories</h5>
-                <div class="accordion" id="accordionPart1">
-                    {% for question in part1_questions %}
-                    <div class="card">
-                        <div class="card-header" id="heading{{ question.id }}">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ question.id }}" aria-expanded="true" aria-controls="collapse{{ question.id }}">
-                                    {{ question.category }}
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapse{{ question.id }}" class="collapse" aria-labelledby="heading{{ question.id }}" data-parent="#accordionPart1">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ question.question }}</h5>
-                                <form action="/submit_answer" method="post">
-                                    <input type="hidden" name="question_id" value="{{ question.id }}">
-                                    <input type="hidden" name="part" value="1">
-                                    <div class="form-group">
-                                        <label for="keywords">Enter Keywords:</label>
-                                        <input type="text" class="form-control" id="keywords" name="keywords" placeholder="Enter keywords" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                </form>
-                            </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Categories</h5>
+                        <div class="list-group">
+                            {% for question in part1_questions %}
+                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapse{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ question.id }}">
+                                {{ question.category }}
+                            </button>
+                            {% endfor %}
                         </div>
                     </div>
-                    {% endfor %}
+                    <div class="col-md-9">
+                        <h5>Questions</h5>
+                        <div id="questionsPart1">
+                            {% for question in part1_questions %}
+                            <div class="collapse" id="collapse{{ question.id }}">
+                                <div class="card card-body">
+                                    <h5 class="card-title">{{ question.question }}</h5>
+                                    <form action="/submit_answer" method="post">
+                                        <input type="hidden" name="question_id" value="{{ question.id }}">
+                                        <input type="hidden" name="part" value="1">
+                                        <div class="form-group">
+                                            <label for="keywords{{ question.id }}">Enter Keywords:</label>
+                                            <input type="text" class="form-control" id="keywords{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                    </form>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
                 <!-- Pagination -->
                 <nav aria-label="Page navigation">
@@ -88,17 +93,39 @@
             </div>
             <div class="tab-pane fade" id="part2" role="tabpanel" aria-labelledby="part2-tab">
                 <h5>Part 2 Questions</h5>
-                <form action="/submit_answer" method="post">
-                    <input type="hidden" name="part" value="2">
-                    <div class="form-group">
-                        <label for="keywords">Enter Keywords for Part 2:</label>
-                        <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Categories</h5>
+                        <div class="list-group">
+                            {% for question in part2_questions %}
+                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart2{{ question.id }}" aria-expanded="false" aria-controls="collapsePart2{{ question.id }}">
+                                {{ question.category }}
+                            </button>
+                            {% endfor %}
+                        </div>
                     </div>
-                    {% for question in part2_questions %}
-                    <p>{{ question.question }}</p>
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary">Submit Answers</button>
-                </form>
+                    <div class="col-md-9">
+                        <h5>Questions</h5>
+                        <div id="questionsPart2">
+                            {% for question in part2_questions %}
+                            <div class="collapse" id="collapsePart2{{ question.id }}">
+                                <div class="card card-body">
+                                    <h5 class="card-title">{{ question.question }}</h5>
+                                    <form action="/submit_answer" method="post">
+                                        <input type="hidden" name="question_id" value="{{ question.id }}">
+                                        <input type="hidden" name="part" value="2">
+                                        <div class="form-group">
+                                            <label for="keywordsPart2{{ question.id }}">Enter Keywords:</label>
+                                            <input type="text" class="form-control" id="keywordsPart2{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                    </form>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
                 <!-- Pagination for Part 2 -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
@@ -112,17 +139,39 @@
             </div>
             <div class="tab-pane fade" id="part3" role="tabpanel" aria-labelledby="part3-tab">
                 <h5>Part 3 Questions</h5>
-                <form action="/submit_answer" method="post">
-                    <input type="hidden" name="part" value="3">
-                    <div class="form-group">
-                        <label for="keywords">Enter Keywords for Part 3:</label>
-                        <input type="text" class="form-control" name="keywords" placeholder="Enter keywords" required>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Categories</h5>
+                        <div class="list-group">
+                            {% for question in part3_questions %}
+                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart3{{ question.id }}" aria-expanded="false" aria-controls="collapsePart3{{ question.id }}">
+                                {{ question.category }}
+                            </button>
+                            {% endfor %}
+                        </div>
                     </div>
-                    {% for question in part3_questions %}
-                    <p>{{ question.question }}</p>
-                    {% endfor %}
-                    <button type="submit" class="btn btn-primary">Submit Answers</button>
-                </form>
+                    <div class="col-md-9">
+                        <h5>Questions</h5>
+                        <div id="questionsPart3">
+                            {% for question in part3_questions %}
+                            <div class="collapse" id="collapsePart3{{ question.id }}">
+                                <div class="card card-body">
+                                    <h5 class="card-title">{{ question.question }}</h5>
+                                    <form action="/submit_answer" method="post">
+                                        <input type="hidden" name="question_id" value="{{ question.id }}">
+                                        <input type="hidden" name="part" value="3">
+                                        <div class="form-group">
+                                            <label for="keywordsPart3{{ question.id }}">Enter Keywords:</label>
+                                            <input type="text" class="form-control" id="keywordsPart3{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                    </form>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
                 <!-- Pagination for Part 3 -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
