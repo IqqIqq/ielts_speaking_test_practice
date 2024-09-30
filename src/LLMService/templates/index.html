@@ -51,33 +51,33 @@
                     <div class="col-md-3">
                         <h5>Categories</h5>
                         <div class="list-group">
-                            {% for question in part1_questions %}
-                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapse{{ question.id }}" aria-expanded="false" aria-controls="collapse{{ question.id }}">
-                                {{ question.category }}
+                            {% for category, questions in part1_grouped.items() %}
+                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapse{{ category }}" aria-expanded="false" aria-controls="collapse{{ category }}">
+                                {{ category }}
                             </button>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
-                        <div id="questionsPart1">
-                            {% for question in part1_questions %}
-                            <div class="collapse" id="collapse{{ question.id }}">
-                                <div class="card card-body">
-                                    <h5 class="card-title">{{ question.question }}</h5>
-                                    <form action="/submit_answer" method="post">
-                                        <input type="hidden" name="question_id" value="{{ question.id }}">
-                                        <input type="hidden" name="part" value="1">
-                                        <div class="form-group">
-                                            <label for="keywords{{ question.id }}">Enter Keywords:</label>
-                                            <input type="text" class="form-control" id="keywords{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                    </form>
-                                </div>
+                        {% for category, questions in part1_grouped.items() %}
+                        <div class="collapse" id="collapse{{ category }}">
+                            {% for question in questions %}
+                            <div class="card card-body">
+                                <h5 class="card-title">{{ question.question }}</h5>
+                                <form action="/submit_answer" method="post">
+                                    <input type="hidden" name="question_id" value="{{ question.id }}">
+                                    <input type="hidden" name="part" value="1">
+                                    <div class="form-group">
+                                        <label for="keywords{{ question.id }}">Enter Keywords:</label>
+                                        <input type="text" class="form-control" id="keywords{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                </form>
                             </div>
                             {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <!-- Pagination -->
@@ -97,33 +97,33 @@
                     <div class="col-md-3">
                         <h5>Categories</h5>
                         <div class="list-group">
-                            {% for question in part2_questions %}
-                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart2{{ question.id }}" aria-expanded="false" aria-controls="collapsePart2{{ question.id }}">
-                                {{ question.category }}
+                            {% for category, questions in part2_grouped.items() %}
+                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart2{{ category }}" aria-expanded="false" aria-controls="collapsePart2{{ category }}">
+                                {{ category }}
                             </button>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
-                        <div id="questionsPart2">
-                            {% for question in part2_questions %}
-                            <div class="collapse" id="collapsePart2{{ question.id }}">
-                                <div class="card card-body">
-                                    <h5 class="card-title">{{ question.question }}</h5>
-                                    <form action="/submit_answer" method="post">
-                                        <input type="hidden" name="question_id" value="{{ question.id }}">
-                                        <input type="hidden" name="part" value="2">
-                                        <div class="form-group">
-                                            <label for="keywordsPart2{{ question.id }}">Enter Keywords:</label>
-                                            <input type="text" class="form-control" id="keywordsPart2{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                    </form>
-                                </div>
+                        {% for category, questions in part2_grouped.items() %}
+                        <div class="collapse" id="collapsePart2{{ category }}">
+                            {% for question in questions %}
+                            <div class="card card-body">
+                                <h5 class="card-title">{{ question.question }}</h5>
+                                <form action="/submit_answer" method="post">
+                                    <input type="hidden" name="question_id" value="{{ question.id }}">
+                                    <input type="hidden" name="part" value="2">
+                                    <div class="form-group">
+                                        <label for="keywordsPart2{{ question.id }}">Enter Keywords:</label>
+                                        <input type="text" class="form-control" id="keywordsPart2{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                </form>
                             </div>
                             {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <!-- Pagination for Part 2 -->
@@ -143,33 +143,33 @@
                     <div class="col-md-3">
                         <h5>Categories</h5>
                         <div class="list-group">
-                            {% for question in part3_questions %}
-                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart3{{ question.id }}" aria-expanded="false" aria-controls="collapsePart3{{ question.id }}">
-                                {{ question.category }}
+                            {% for category, questions in part3_grouped.items() %}
+                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart3{{ category }}" aria-expanded="false" aria-controls="collapsePart3{{ category }}">
+                                {{ category }}
                             </button>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
-                        <div id="questionsPart3">
-                            {% for question in part3_questions %}
-                            <div class="collapse" id="collapsePart3{{ question.id }}">
-                                <div class="card card-body">
-                                    <h5 class="card-title">{{ question.question }}</h5>
-                                    <form action="/submit_answer" method="post">
-                                        <input type="hidden" name="question_id" value="{{ question.id }}">
-                                        <input type="hidden" name="part" value="3">
-                                        <div class="form-group">
-                                            <label for="keywordsPart3{{ question.id }}">Enter Keywords:</label>
-                                            <input type="text" class="form-control" id="keywordsPart3{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                    </form>
-                                </div>
+                        {% for category, questions in part3_grouped.items() %}
+                        <div class="collapse" id="collapsePart3{{ category }}">
+                            {% for question in questions %}
+                            <div class="card card-body">
+                                <h5 class="card-title">{{ question.question }}</h5>
+                                <form action="/submit_answer" method="post">
+                                    <input type="hidden" name="question_id" value="{{ question.id }}">
+                                    <input type="hidden" name="part" value="3">
+                                    <div class="form-group">
+                                        <label for="keywordsPart3{{ question.id }}">Enter Keywords:</label>
+                                        <input type="text" class="form-control" id="keywordsPart3{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
+                                </form>
                             </div>
                             {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <!-- Pagination for Part 3 -->

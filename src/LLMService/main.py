@@ -129,16 +129,30 @@ async def index(request: Request, db: Session = Depends(get_db), part: int = Que
     part2_questions = db.query(Part2Question).all()
     part3_questions = db.query(Part3Question).all()
 
-    # 分页处理
-    part1_paginated = part1_questions[(part - 1) * page_size: part * page_size]
-    part2_paginated = part2_questions[(part - 1) * page_size: part * page_size]
-    part3_paginated = part3_questions[(part - 1) * page_size: part * page_size]
+    # 分组问题按类别
+    part1_grouped = {}
+    for question in part1_questions:
+        if question.category not in part1_grouped:
+            part1_grouped[question.category] = []
+        part1_grouped[question.category].append(question)
+
+    part2_grouped = {}
+    for question in part2_questions:
+        if question.category not in part2_grouped:
+            part2_grouped[question.category] = []
+        part2_grouped[question.category].append(question)
+
+    part3_grouped = {}
+    for question in part3_questions:
+        if question.category not in part3_grouped:
+            part3_grouped[question.category] = []
+        part3_grouped[question.category].append(question)
 
     return templates.TemplateResponse("index.html", {
         "request": request,
-        "part1_questions": part1_paginated,
-        "part2_questions": part2_paginated,
-        "part3_questions": part3_paginated,
+        "part1_grouped": part1_grouped,
+        "part2_grouped": part2_grouped,
+        "part3_grouped": part3_grouped,
         "part1_count": len(part1_questions),
         "part2_count": len(part2_questions),
         "part3_count": len(part3_questions),
