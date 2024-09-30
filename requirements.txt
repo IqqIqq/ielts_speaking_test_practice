@@ -5,3 +5,4 @@ psycopg2-binary
 websocket-client
 python-dotenv
 Jinja2
+python-multipart
