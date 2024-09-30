@@ -52,30 +52,26 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part1_grouped.items() %}
-                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapse{{ category }}" aria-expanded="false" aria-controls="collapse{{ category }}">
+                            <a class="list-group-item list-group-item-action {% if category == current_category %}active{% endif %}" href="/?category={{ category }}&part=1">
                                 {{ category }}
-                            </button>
+                            </a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
-                        {% for category, questions in part1_grouped.items() %}
-                        <div class="collapse" id="collapse{{ category }}">
-                            {% for question in questions %}
-                            <div class="card card-body">
-                                <h5 class="card-title">{{ question.question }}</h5>
-                                <form action="/submit_answer" method="post">
-                                    <input type="hidden" name="question_id" value="{{ question.id }}">
-                                    <input type="hidden" name="part" value="1">
-                                    <div class="form-group">
-                                        <label for="keywords{{ question.id }}">Enter Keywords:</label>
-                                        <input type="text" class="form-control" id="keywords{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit Answer</button>
-                                </form>
-                            </div>
-                            {% endfor %}
+                        {% for question in part1_questions %}
+                        <div class="card card-body">
+                            <h5 class="card-title">{{ question.question }}</h5>
+                            <form action="/submit_answer" method="post">
+                                <input type="hidden" name="question_id" value="{{ question.id }}">
+                                <input type="hidden" name="part" value="1">
+                                <div class="form-group">
+                                    <label for="keywords{{ question.id }}">Enter Keywords:</label>
+                                    <input type="text" class="form-control" id="keywords{{ question.id }}" name="keywords" placeholder="Enter keywords" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Answer</button>
+                            </form>
                         </div>
                         {% endfor %}
                     </div>
@@ -83,9 +79,9 @@
                 <!-- Pagination -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        {% for i in range(1, (part1_count // 10) + 2) %}
+                        {% for i in range(1, (part1_count // 7) + 2) %}
                         <li class="page-item {% if i == current_part %}active{% endif %}">
-                            <a class="page-link" href="/?part={{ i }}"> {{ i }} </a>
+                            <a class="page-link" href="/?category={{ current_category }}&part={{ i }}"> {{ i }} </a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -98,16 +94,15 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part2_grouped.items() %}
-                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart2{{ category }}" aria-expanded="false" aria-controls="collapsePart2{{ category }}">
-                                {{ category }}
-                            </button>
+                            <a class="list-group-item list-group-item-action" href="#">{{ category }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
                         {% for category, questions in part2_grouped.items() %}
-                        <div class="collapse" id="collapsePart2{{ category }}">
+                        <div>
+                            <h6>{{ category }}</h6>
                             {% for question in questions %}
                             <div class="card card-body">
                                 <h5 class="card-title">{{ question.question }}</h5>
@@ -129,9 +124,9 @@
                 <!-- Pagination for Part 2 -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        {% for i in range(1, (part2_count // 10) + 2) %}
+                        {% for i in range(1, (part2_count // 7) + 2) %}
                         <li class="page-item {% if i == current_part %}active{% endif %}">
-                            <a class="page-link" href="/?part={{ i }}"> {{ i }} </a>
+                            <a class="page-link" href="/?part=2&page={{ i }}"> {{ i }} </a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -144,16 +139,15 @@
                         <h5>Categories</h5>
                         <div class="list-group">
                             {% for category, questions in part3_grouped.items() %}
-                            <button class="list-group-item list-group-item-action" data-toggle="collapse" data-target="#collapsePart3{{ category }}" aria-expanded="false" aria-controls="collapsePart3{{ category }}">
-                                {{ category }}
-                            </button>
+                            <a class="list-group-item list-group-item-action" href="#">{{ category }}</a>
                             {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-9">
                         <h5>Questions</h5>
                         {% for category, questions in part3_grouped.items() %}
-                        <div class="collapse" id="collapsePart3{{ category }}">
+                        <div>
+                            <h6>{{ category }}</h6>
                             {% for question in questions %}
                             <div class="card card-body">
                                 <h5 class="card-title">{{ question.question }}</h5>
@@ -175,9 +169,9 @@
                 <!-- Pagination for Part 3 -->
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
-                        {% for i in range(1, (part3_count // 10) + 2) %}
+                        {% for i in range(1, (part3_count // 7) + 2) %}
                         <li class="page-item {% if i == current_part %}active{% endif %}">
-                            <a class="page-link" href="/?part={{ i }}"> {{ i }} </a>
+                            <a class="page-link" href="/?part=3&page={{ i }}"> {{ i }} </a>
                         </li>
                         {% endfor %}
                     </ul>

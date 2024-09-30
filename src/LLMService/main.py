@@ -124,7 +124,7 @@ def get_db():
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request, db: Session = Depends(get_db), part: int = Query(1), category: str = Query(None)):
     # 每页显示的问题数量
-    page_size = 10
+    page_size = 7
     part1_questions = db.query(Part1Question).all()
     part2_questions = db.query(Part2Question).all()
     part3_questions = db.query(Part3Question).all()
@@ -148,15 +148,25 @@ async def index(request: Request, db: Session = Depends(get_db), part: int = Que
             part3_grouped[question.category] = []
         part3_grouped[question.category].append(question)
 
+    # 默认显示第一个类别的问题
+    if category is None and part1_grouped:
+        category = list(part1_grouped.keys())[0]
+
+    # 获取当前类别的问题
+    part1_questions_to_display = part1_grouped.get(category, [])
+    part1_paginated = part1_questions_to_display[(part - 1) * page_size: part * page_size]
+
     return templates.TemplateResponse("index.html", {
         "request": request,
         "part1_grouped": part1_grouped,
+        "part1_questions": part1_paginated,
         "part2_grouped": part2_grouped,
         "part3_grouped": part3_grouped,
         "part1_count": len(part1_questions),
         "part2_count": len(part2_questions),
         "part3_count": len(part3_questions),
-        "current_part": part
+        "current_part": part,
+        "current_category": category
     })
 
 @app.post("/submit_answer", response_class=HTMLResponse)
@@ -169,7 +179,11 @@ async def submit_answer(request: Request, question_id: int = Form(...), keywords
         answer = generate_answer(question.question, keywords)
     else:
         question = db.query(Part3Question).filter(Part3Question.id == question_id).first()
-        answer = generate_answer(question.question, keywords)
+        # 解析小问题
+        small_questions = question.question.split('?')  # 假设小问题用 ? 分隔
+        for small_question in small_questions:
+            if small_question.strip():  # 确保小问题不为空
+                answer = generate_answer(small_question.strip(), keywords)
 
     return templates.TemplateResponse("response.html", {"request": request, "question": question.question, "answer": answer})
 
