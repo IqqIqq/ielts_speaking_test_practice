@@ -27,7 +27,7 @@
                 <div class="col-md-9">
                     <h5>Questions</h5>
                     {% for question in part1_questions %}
-                    <div class="card card-body mb-2">
+                    <div class="card card-body">
                         <h5 class="card-title">{{ question.question }}</h5>
                         <form action="/submit_answer" method="post">
                             <input type="hidden" name="question_id" value="{{ question.id }}">
@@ -42,13 +42,14 @@
                     {% endfor %}
                     <!-- Pagination -->
                     <div class="d-flex justify-content-between">
-                        <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?category={{ current_category }}&part=1&page={{ current_part - 1 }}">Previous Page</a>
-                        <a class="btn btn-secondary {% if part1_questions|length <= part1_questions_to_display|length %}disabled{% endif %}" href="/?category={{ current_category }}&part=1&page={{ current_part + 1 }}">Next Page</a>
+                        <a class="btn btn-secondary {% if current_part == 1 %}disabled{% endif %}" href="/?category={{ current_category }}&part={{ current_part - 1 }}">Previous Page</a>
+                        <a class="btn btn-secondary {% if part1_questions|length <= part1_questions_to_display|length %}disabled{% endif %}" href="/?category={{ current_category }}&part={{ current_part + 1 }}">Next Page</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="tab-pane fade" id="part2" role="tabpanel" aria-labelledby="part2-tab">
+            <h5>Part 2 Questions</h5>
             <div class="row">
                 <div class="col-md-3">
                     <h5>Categories</h5>
@@ -61,7 +62,7 @@
                 <div class="col-md-9">
                     <h5>Questions</h5>
                     {% for question in part2_questions %}
-                    <div class="card card-body mb-2">
+                    <div class="card card-body">
                         <h5 class="card-title">{{ question.question }}</h5>
                         <form action="/submit_answer" method="post">
                             <input type="hidden" name="question_id" value="{{ question.id }}">
@@ -83,6 +84,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="part3" role="tabpanel" aria-labelledby="part3-tab">
+            <h5>Part 3 Questions</h5>
             <div class="row">
                 <div class="col-md-3">
                     <h5>Categories</h5>
@@ -95,7 +97,7 @@
                 <div class="col-md-9">
                     <h5>Questions</h5>
                     {% for question in part3_questions %}
-                    <div class="card card-body mb-2">
+                    <div class="card card-body">
                         <h5 class="card-title">{{ question.question }}</h5>
                         <form action="/submit_answer" method="post">
                             <input type="hidden" name="question_id" value="{{ question.id }}">
