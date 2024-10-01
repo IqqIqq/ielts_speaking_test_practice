@@ -198,7 +198,7 @@ def generate_answer(question, keywords):
         "You are an IELTS speaking student with expert English speaking skills. "
         "Now you need to give the concise and direct answer given the hints of keywords input. "
         "The score criteria is fluency and coherence, lexical resource, grammatical range and accuracy, pronunciation. "
-        f"The question is: {question}. My answer is {keywords}, and you need to rephrase the answer to at least 3 sentences."
+        f"The question is: {question}. My answer is {keywords}, and you need to rephrase the answer to at least 3 sentences and no more than 10 sentences."
     )
 
     SparkApi.answer = ""  # Clear the previous answer
