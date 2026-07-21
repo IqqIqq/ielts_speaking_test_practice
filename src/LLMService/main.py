@@ -158,7 +158,7 @@ async def index(request: Request, db: Session = Depends(get_db), part: int = Que
     part2_questions_to_display = part2_grouped.get(category, [])
     part3_questions_to_display = part3_grouped.get(category, [])
 
-return templates.TemplateResponse(
+    return templates.TemplateResponse(
         request=request,
         name="index.html",
         context={
