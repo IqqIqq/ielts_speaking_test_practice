@@ -1,9 +1,9 @@
-fastapi
-uvicorn
-sqlalchemy
-psycopg2-binary
 asyncpg
 websocket-client
-python-dotenv
 Jinja2
 python-multipart
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+sqlalchemy==1.4.49
+psycopg2-binary==2.9.9
+python-dotenv==1.0.0
