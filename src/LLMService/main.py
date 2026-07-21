@@ -77,7 +77,7 @@ async def call_llm(request: Request, query: str = Form(...)):
 #     return spark_answer  # Return the generated answer
 
 # Database configuration
-DATABASE_URL = os.getenv("DATABASE_URL")  # Get the connection string from environment variables
+DATABASE_URL = os.getenv("POSTGRES_URL")  # Get the connection string from environment variables
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
