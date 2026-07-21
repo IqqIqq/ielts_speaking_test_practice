@@ -1,4 +1,18 @@
 {
-  "builds": [{ "src": "src/LLMService/main.py", "use": "@vercel/python" }],
-  "routes": [{ "src": "/(.*)", "dest": "src/LLMService/main.py" }]
+  "builds": [
+    {
+      "src": "src/LLMService/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "installCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+        "runtime": "python3.11"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/LLMService/main.py"
+    }
+  ]
  }
