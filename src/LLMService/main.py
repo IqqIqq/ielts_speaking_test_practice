@@ -158,21 +158,23 @@ async def index(request: Request, db: Session = Depends(get_db), part: int = Que
     part2_questions_to_display = part2_grouped.get(category, [])
     part3_questions_to_display = part3_grouped.get(category, [])
 
-    return templates.TemplateResponse("index.html", {
-        "request": request,
-        "part1_grouped": part1_grouped,
-        "part1_questions": part1_paginated,
-        "part2_grouped": part2_grouped,
-        "part2_questions": part2_questions_to_display,
-        "part3_grouped": part3_grouped,
-        "part3_questions": part3_questions_to_display,
-        "part1_count": len(part1_questions),
-        "part2_count": len(part2_questions),
-        "part3_count": len(part3_questions),
-        "current_part": part,
-        "current_category": category
-    })
-
+return templates.TemplateResponse(
+        request=request,
+        name="index.html",
+        context={
+            "part1_grouped": part1_grouped,
+            "part1_questions": part1_paginated,
+            "part2_grouped": part2_grouped,
+            "part2_questions": part2_questions_to_display,
+            "part3_grouped": part3_grouped,
+            "part3_questions": part3_questions_to_display,
+            "part1_count": len(part1_questions),
+            "part2_count": len(part2_questions),
+            "part3_count": len(part3_questions),
+            "current_part": part,
+            "current_category": category,
+        }
+    )
 @app.post("/submit_answer", response_class=HTMLResponse)
 async def submit_answer(request: Request, question_id: int = Form(...), keywords: str = Form(...), part: int = Form(...), db: Session = Depends(get_db)):
     if part == 1:
