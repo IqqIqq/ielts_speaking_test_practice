@@ -48,7 +48,9 @@ def checklen(text):
     
 @app.get("/qa", response_class=HTMLResponse)
 async def get_query_form(request: Request):
-    return templates.TemplateResponse("query_form.html", {"request": request})
+    return templates.TemplateResponse(request,
+    "query_form.html",
+    {"request": request})
 
 @app.post("/qa", response_class=HTMLResponse)
 async def call_llm(request: Request, query: str = Form(...)):
@@ -61,7 +63,12 @@ async def call_llm(request: Request, query: str = Form(...)):
     # Generate the complete answer
     answer = generate_answer(query, SparkApi.answer)
 
-    return templates.TemplateResponse("response.html", {"request": request, "answer": answer})
+    return templates.TemplateResponse(request,
+    "response.html",
+    {
+        "request": request,
+        "answer": answer
+    })
 
 # def generate_answer(query, spark_answer):
 #     # Logic to generate the complete answer
@@ -192,7 +199,13 @@ async def submit_answer(request: Request, question_id: int = Form(...), keywords
             if small_question.strip():  # 确保小问题不为空
                 answer = generate_answer(small_question.strip(), keywords)
 
-    return templates.TemplateResponse("response.html", {"request": request, "question": question.question, "answer": answer})
+    return templates.TemplateResponse(request,
+    "response.html",
+    {
+        "request": request,
+        "question": question.question,
+        "answer": answer
+    })
 
 def generate_answer(question, keywords):
     prompt = (
@@ -214,13 +227,23 @@ async def register(request: Request, username: str = Form(...), password: str = 
     new_user = User(username=username, password=hashed_password)
     db.add(new_user)
     db.commit()
-    return templates.TemplateResponse("login.html", {"request": request, "message": "Registration successful! Please log in."})
+    return templates.TemplateResponse(request,
+    "login.html",
+    {
+        "request": request,
+        "message": "Registration successful! Please log in."
+    })
 
 # Login user
 @app.post("/login", response_class=HTMLResponse)
 async def login(request: Request, username: str = Form(...), password: str = Form(...), db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == username).first()
     if user and pwd_context.verify(password, user.password):
-        return templates.TemplateResponse("index.html", {"request": request, "message": "Login successful!"})
+        return templates.TemplateResponse(request,
+    "index.html",
+    {
+        "request": request,
+        "message": "Login successful!"
+    })
     else:
         raise HTTPException(status_code=400, detail="Invalid username or password")
