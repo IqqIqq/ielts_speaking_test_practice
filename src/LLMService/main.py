@@ -159,9 +159,10 @@ async def index(request: Request, db: Session = Depends(get_db), part: int = Que
     part3_questions_to_display = part3_grouped.get(category, [])
 
     return templates.TemplateResponse(
-        request=request,
-        name="index.html",
-        context={
+         request,
+        "index.html",
+        {
+            "request": request,  # 确保旧版本模板渲染也能拿到 request
             "part1_grouped": part1_grouped,
             "part1_questions": part1_paginated,
             "part2_grouped": part2_grouped,
