@@ -45,7 +45,7 @@ Users can browse real exam-style questions (Part 1, Part 2, and Part 3), provide
 ---
 
 ## Project Structure
-
+```text
 ielts_speaking_test_practice/
 ├── src/
 │   ├── LLMService/          # Main FastAPI application + Spark API integration
@@ -65,27 +65,27 @@ ielts_speaking_test_practice/
 
 ### 1. Clone the repository
 
-git clone https://github.com/IqqIqq/ielts_speaking_test_practice.git
-cd ielts_speaking_test_practice
+- git clone https://github.com/IqqIqq/ielts_speaking_test_practice.git
+- cd ielts_speaking_test_practice
 
 ### 2. Create a virtual environment and install dependencies
 
-python -m venv venv
-source venv/bin/activate          # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+- python -m venv venv
+- source venv/bin/activate          # Windows: venv\Scripts\activate
+- pip install -r requirements.txt
 
 ### 3. Set environment variables
-Create a .env file in the root directory:env
+- Create a .env file in the root directory:env
 
-POSTGRES_URL=your_postgres_connection_string
-SPARK_APPID=your_appid
-SPARK_API_KEY=your_api_key
-SPARK_API_SECRET=your_api_secret
+- POSTGRES_URL=your_postgres_connection_string
+- SPARK_APPID=your_appid
+- SPARK_API_KEY=your_api_key
+- SPARK_API_SECRET=your_api_secret
 
 ### 4. Run the application
-uvicorn src.LLMService.main:app --reload --host 0.0.0.0 --port 8000
+- uvicorn src.LLMService.main:app --reload --host 0.0.0.0 --port 8000
 
-Open http://localhost:8000 in your browser.
+- Open http://localhost:8000 in your browser.
 
 ## How It Works
 Questions from p1.csv, p2.csv, and p3.csv are loaded into PostgreSQL.
@@ -102,6 +102,6 @@ Support for more LLM providers (OpenAI, Claude, local models via Ollama)
 Better mobile-responsive UI
 Export answers as audio (TTS)
 
-## Author: IqqIqq
+Author: IqqIqq
 
 
