@@ -12,9 +12,9 @@ app = FastAPI()
 templates = Jinja2Templates(directory="src/LLMService/templates")  # Ensure the path is correct
 
 # The following key information is obtained from the console
-appid = "750d6733"     # Fill in the APPID information obtained from the console
-api_secret = "ZGFkNTAwNmNlYTJlNWQwMjU4NTZlNTQ1"   # Fill in the APISecret information obtained from the console
-api_key ="604232ad1d5ab568da8f446e77240ec3"    # Fill in the APIKey information obtained from the console
+appid = APPID     # Fill in the APPID information obtained from the console
+api_secret = APISecret  # Fill in the APISecret information obtained from the console
+api_key = APIKey    # Fill in the APIKey information obtained from the console
 
 # Used to configure the large model version, default "general/generalv2"
 domain = "general"   # v1.5 version
