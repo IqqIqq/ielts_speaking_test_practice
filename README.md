@@ -88,19 +88,19 @@ ielts_speaking_test_practice/
 - Open http://localhost:8000 in your browser.
 
 ## How It Works
-Questions from p1.csv, p2.csv, and p3.csv are loaded into PostgreSQL.
-User selects a part and category, then chooses a question.
-User submits keywords / rough ideas.
-The system constructs a carefully designed prompt and calls the Spark LLM.
-The model returns a natural, exam-ready spoken answer.
+- Questions from p1.csv, p2.csv, and p3.csv are loaded into PostgreSQL.
+- User selects a part and category, then chooses a question.
+- User submits keywords / rough ideas.
+- The system constructs a carefully designed prompt and calls the Spark LLM.
+- The model returns a natural, exam-ready spoken answer.
 
 ## Future Improvements (Ideas)
-Add speech-to-text so users can practice speaking aloud
-Real-time band-score estimation (Fluency, Lexical Resource, Grammar, Pronunciation)
-Save practice history and track progress
-Support for more LLM providers (OpenAI, Claude, local models via Ollama)
-Better mobile-responsive UI
-Export answers as audio (TTS)
+- Add speech-to-text so users can practice speaking aloud
+- Real-time band-score estimation (Fluency, Lexical Resource, Grammar, Pronunciation)
+- Save practice history and track progress
+- Support for more LLM providers (OpenAI, Claude, local models via Ollama)
+- Better mobile-responsive UI
+- Export answers as audio (TTS)
 
 Author: IqqIqq
 
